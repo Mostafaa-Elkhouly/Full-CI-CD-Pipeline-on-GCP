@@ -1,6 +1,9 @@
 #!/bin/bash
 sudo apt-get update
 
+# Install OpenJdk for Jenkins
+sudo apt install -y openjdk-17-jre
+
 sudo apt-get install kubectl
 sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
 
@@ -10,6 +13,12 @@ sudo apt install -y docker.io
 # Start and enable Docker service
 sudo systemctl start docker
 sudo systemctl enable docker
+
+# Fetch the external IP address
+EXTERNAL_IP=$(curl -H "Metadata-Flavor: Google" http://metadata.google.internal/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip)
+
+# Store the IP address in a file
+echo "$EXTERNAL_IP" > inventory.txt
 
 # gcloud container clusters get-credentials privatecluster --region us-east1 --project swift-radar-399606
 
