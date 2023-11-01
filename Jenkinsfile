@@ -1,7 +1,7 @@
 pipeline {
     
     environment {
-        GOOGLE_APPLICATION_CREDENTIALS = credentials('swift-radar-399606').getFile().getAbsolutePath()
+        GOOGLE_APPLICATION_CREDENTIALS = credentials('GOOGLE_APPLICATION_CREDENTIALS')
     }
     
     agent any    
@@ -14,18 +14,23 @@ pipeline {
                 url: 'https://github.com/Mostafaa-Elkhouly/Full-CI-CD-Pipeline-on-GCP.git'
             }
         }
+
         stage('initialize Terraform') {
             steps {
-                script {
-                    sh 'terraform init'
+                dir('./Terraform') {
+                    script {
+                        sh 'terraform init'
+                    }
                 }
             }
         }
         stage('Apply Terraform') {
             steps {
-                script{
-                    echo "Applying Terraform ...."
-                    sh 'terraform apply -auto-approve'
+                dir('./Terraform') {
+                    script {
+                        echo "Applying Terraform ...."
+                        sh 'terraform apply -auto-approve'
+                    }
                 }
             }
         }
