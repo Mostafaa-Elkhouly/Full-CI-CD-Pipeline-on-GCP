@@ -4,9 +4,7 @@ pipeline {
         GOOGLE_APPLICATION_CREDENTIALS = credentials('swift-radar-399606')
     }
     
-    agent {
-        label 'ubuntu-2004'
-    }
+    agent any    
     
     stages {
         stage('Checkout Code') {
