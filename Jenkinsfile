@@ -1,11 +1,11 @@
 pipeline {
     
     environment {
-        GOOGLE_APPLICATION_CREDENTIALS = credentials('swift-radar-399606')
+        GOOGLE_APPLICATION_CREDENTIALS = credentials('swift-radar-399606').getFile().getAbsolutePath()
     }
     
     agent any    
-    
+
     stages {
         stage('Checkout Code') {
             steps {
