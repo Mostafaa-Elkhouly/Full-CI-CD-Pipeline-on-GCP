@@ -5,7 +5,7 @@ pipeline {
     }
     
     agent {
-        label 'gce-gce'
+        label 'ubuntu-2004'
     }
     
     stages {
