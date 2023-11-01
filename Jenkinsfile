@@ -4,7 +4,9 @@ pipeline {
         GOOGLE_APPLICATION_CREDENTIALS = credentials('swift-radar-399606')
     }
     
-    agent gce-gce
+    agent {
+        label 'gce-gce'
+    }
     
     stages {
         stage('Checkout Code') {
