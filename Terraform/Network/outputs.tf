@@ -8,8 +8,3 @@ output "subnets_list" {
   description = "The list of names for the subnets"
   value       = google_compute_subnetwork.subnets
 }
-
-output "my_public_ip" {
-  description = "My Public IP Address"
-  value       = data.http.my_public_ip.response_body
-}

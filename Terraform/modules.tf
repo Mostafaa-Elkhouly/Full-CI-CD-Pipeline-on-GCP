@@ -29,6 +29,5 @@ module "GKE_module" {
   source           = "./GKE"
   vpc_network_name = module.network_module.vpc_network_name
   subnets_list     = module.network_module.subnets_list
-  my_public_ip     = module.network_module.my_public_ip
   cluster_sa_email = module.IAM_module.cluster_sa_email
 }
