@@ -36,4 +36,10 @@ pipeline {
         }
 
     }
+
+    post{
+        success{
+            build propagate: false, job: 'GCP-Deploy-App'
+        }
+    }
 }
