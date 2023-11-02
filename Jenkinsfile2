@@ -1,0 +1,49 @@
+pipeline {
+    
+    environment {
+        GOOGLE_APPLICATION_CREDENTIALS = credentials('GOOGLE_APPLICATION_CREDENTIALS')
+    }
+    
+    agent {
+        label 'gcp'
+    }    
+
+    stages {
+        stage('Initialize') {
+            steps {
+                sh 'gcloud container clusters get-credentials privatecluster --region us-east1 --project swift-radar-399606'
+                sh 'kubectl get all'
+                sh 'rm -rf ./Full-CI-CD-Pipeline-on-GCP'
+                sh 'git clone https://github.com/Mostafaa-Elkhouly/Full-CI-CD-Pipeline-on-GCP.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'sudo docker build -t flask-app ./Full-CI-CD-Pipeline-on-GCP/App'
+                sh 'sudo docker tag flask-app us-central1-docker.pkg.dev/swift-radar-399606/my-repo/flask-app:latest'
+            }
+        }
+
+        stage('Configure Docker Registry') {
+            steps {
+                sh 'echo "Y" | gcloud auth configure-docker us-central1-docker.pkg.dev'
+                sh 'gcloud auth print-access-token | sudo docker login -u oauth2accesstoken --password-stdin us-central1-docker.pkg.dev'
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                sh 'sudo docker push us-central1-docker.pkg.dev/swift-radar-399606/my-repo/flask-app:latest'
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh 'kubectl apply -f ./Full-CI-CD-Pipeline-on-GCP/Kubernetes/app-deployment.yaml'
+                sh 'kubectl apply -f ./Full-CI-CD-Pipeline-on-GCP/Kubernetes/app-service.yaml'
+                sh 'kubectl get all'
+            }
+        }
+    }
+}
