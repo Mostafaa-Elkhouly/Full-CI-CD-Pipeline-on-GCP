@@ -3,13 +3,11 @@ FROM python:3-alpine
 # Create app directory
 WORKDIR /app
 
+# Copy app source code
+COPY . .
+
 # Install app dependencies
-COPY requirements.txt ./
-
 RUN pip install -r requirements.txt
-
-# Bundle app source
-COPY ./app.py .
 
 EXPOSE 5000
 
