@@ -13,5 +13,3 @@ sudo apt install -y -q docker.io
 # Start and enable Docker service
 sudo systemctl start docker
 sudo systemctl enable docker
-
-gcloud container clusters get-credentials privatecluster --region us-east1 --project swift-radar-399606
