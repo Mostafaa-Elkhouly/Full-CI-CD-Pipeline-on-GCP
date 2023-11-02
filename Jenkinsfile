@@ -1,3 +1,6 @@
+// Jenkins Pipeline - GCP-Terraform
+// This pipeline builds the infrastructure on Google Cloud Platform (GCP) and creates a private GKE cluster.
+
 pipeline {
     
     environment {

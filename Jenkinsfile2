@@ -1,3 +1,6 @@
+// Jenkins Pipeline - GCP-Deploy-App
+// This pipeline deploys an application to a private GKE cluster on Google Cloud Platform (GCP).
+
 pipeline {
     
     environment {
