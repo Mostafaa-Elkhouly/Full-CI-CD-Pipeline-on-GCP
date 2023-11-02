@@ -28,6 +28,10 @@ resource "google_compute_instance" "management_vm" {
 
   metadata_startup_script = file("./Compute/startup_script.sh")
 
+  metadata = {
+    ssh-keys = "mostafa_elkhouly97:${file("./Compute/id_rsa.pub")}"
+  }
+
   service_account {
     email  = var.instance_sa_email
     scopes = ["cloud-platform"]
