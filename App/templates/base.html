@@ -4,19 +4,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ the_title }}</title>
-  <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Source+Sans+Pro" rel="stylesheet">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 
 <body>
-<div id="container">
-  <div class="menu">
-    <ul>
-      <li><a href="{{ url_for('index') }}">Home</a></li>
-      <li><a href="{{ url_for('symbol') }}">Tiger As Symbol</a></li>
-      <li><a href="{{ url_for('myth') }}">Tiger in Myth and Legend</a></li>
-    </ul>
-  </div>
+
+  <header>
+    <img src="{{ url_for('static', filename='images/iti-logo.png') }}" alt="ITI Logo" class="iti-logo">
+    <h1>Intensive Code Camp (ICC) DevOps Final Project</h1>
+  </header>
 
   <!-- Jinja2 directives: page contents will go between them -->
   {% block body %}

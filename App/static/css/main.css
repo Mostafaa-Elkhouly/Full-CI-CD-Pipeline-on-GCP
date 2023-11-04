@@ -4,86 +4,54 @@
     box-sizing: border-box;
 }
 
-/* Start Menu */
-.menu {
-    background-color: #333;
-    text-align: center;
-}
-
-.menu ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.menu li {
-    display: inline;
-    margin-right: 20px;
-}
-
-.menu a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-.menu a:hover {
-    color: yellow;
-}
-
-/* End Menu */
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 100%;
-    color: #000;
-    background: #407189;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
     margin: 0;
+    padding: 0;
+}
+header {
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#container {
-    margin: 2em auto;
-    width: 740px;
-    padding: 2em 4em;
-    background: #f1f7dc;
+.iti-logo {
+    max-width: 100px;
+    margin: 0 auto;
+    display: block;
+}
+.iti-image {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+}
+h1 {
+    color: #333;
+}
+.project-details {
+    margin-top: 20px;
+    padding-left: 30px;
+}
+ul {
+    list-style: none;
+}
+ul li {
+    margin-bottom: 10px;
 }
 
-h1, h2 {
-    font-family: 'Droid Serif', serif;
-    font-size: 3em;
-    margin: 0;
-		padding-bottom: 1em;
+.project-description {
+    margin-top: 20px;
+    padding-left: 30px;
 }
-
-h2 {
-    font-size: 2em;
-}
-
-p, li {
-    font-size: 1.4em;
-}
-
-p.credit {
-	font-size: 0.9em;
-}
-
-img {
-	display: block;
-	margin: auto;
-	max-width: 100%;
-}
-
-/* links */
-
-a {
-    color: #1484bc;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #407189;
-    text-decoration: underline;
-}
-
 
 /* media queries */
 
