@@ -17,7 +17,9 @@ pipeline {
                 sh 'gcloud container clusters get-credentials privatecluster --region us-east1 --project swift-radar-399606'
                 sh 'kubectl get all'
                 sh 'rm -rf ./Full-CI-CD-Pipeline-on-GCP'
-                sh 'git clone https://github.com/Mostafaa-Elkhouly/Full-CI-CD-Pipeline-on-GCP.git'
+                
+                git branch: 'main',
+                url: 'https://github.com/Mostafaa-Elkhouly/Full-CI-CD-Pipeline-on-GCP.git'
             }
         }
 
