@@ -43,6 +43,7 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
+                sh 'kubectl delete pods -l app=flask-app'
                 sh 'kubectl apply -f ./Kubernetes/app-deployment.yaml'
                 sh 'kubectl apply -f ./Kubernetes/app-service.yaml'
                 sh 'kubectl get all'
