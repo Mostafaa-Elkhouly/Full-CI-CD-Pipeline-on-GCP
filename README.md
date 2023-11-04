@@ -58,4 +58,4 @@ Before setting up this CI/CD pipeline, ensure you have the following prerequisit
 
 ## Contact
 
-For any questions or feedback regarding this project, please feel free to reach out to [mostafa.elkhouly97@gmail.com].
+For any questions or feedback regarding this project, please feel free to reach out to mostafa.elkhouly97@gmail.com.
