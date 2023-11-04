@@ -15,9 +15,7 @@ pipeline {
         stage('Initialize') {
             steps {
                 sh 'gcloud container clusters get-credentials privatecluster --region us-east1 --project swift-radar-399606'
-                sh 'kubectl get all'
-                sh 'rm -rf ./Full-CI-CD-Pipeline-on-GCP'
-                
+                sh 'kubectl get all'                
                 git branch: 'main',
                 url: 'https://github.com/Mostafaa-Elkhouly/Full-CI-CD-Pipeline-on-GCP.git'
             }
@@ -25,7 +23,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'sudo docker build -t flask-app ./Full-CI-CD-Pipeline-on-GCP/App'
+                sh 'sudo docker build -t flask-app ./App'
                 sh 'sudo docker tag flask-app us-central1-docker.pkg.dev/swift-radar-399606/my-repo/flask-app:latest'
             }
         }
